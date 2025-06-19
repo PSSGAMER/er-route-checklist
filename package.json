@@ -1,5 +1,5 @@
 {
-  "name": "er_route_checklist",
+  "name": "er checklist",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -60,6 +60,7 @@
     "zod": "^3.24.1"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.16",
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
