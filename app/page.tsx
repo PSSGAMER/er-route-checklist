@@ -1151,20 +1151,31 @@ export default function EldenRingChecklist() {
           ))}
         </div>
 
-        <div className="mt-8 text-center text-sm text-gold-700">
-          <p>Progress is automatically saved to your browser's local storage.</p>
-          <p className="mt-2">
-            Data source:{" "}
-            <a
-              href="https://eldenring.wiki.fextralife.com/Game+Progress+Route"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline hover:text-gold-500"
-            >
-              Elden Ring Wiki - Fextralife
-            </a>
-          </p>
-        </div>
+         <div className="mt-8 text-center text-sm text-gold-700">
+  <p>Progress is automatically saved to your browser's local storage.</p>
+  <p className="mt-2">
+    Data source:{" "}
+    <a
+      href="https://eldenring.wiki.fextralife.com/Game+Progress+Route"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="underline hover:text-gold-500"
+    >
+      Elden Ring Wiki - Fextralife
+    </a>
+  </p>
+  <p className="mt-2">
+    GitHub:{" "}
+    <a
+      href="https://github.com/PSSGAMER/er-route-checklist/tree/main"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="underline hover:text-gold-500"
+    >
+      View Source Code
+    </a>
+  </p>
+</div>
       </div>
     </div>
   )
