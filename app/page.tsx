@@ -14,7 +14,7 @@ interface ChecklistItem {
 }
 
 interface Section {
-  id: string
+  id:string
   title: string
   level: string
   upgrades: string
@@ -1040,30 +1040,30 @@ export default function EldenRingChecklist() {
   const progressPercentage = totalItems > 0 ? Math.round((completedItems / totalItems) * 100) : 0
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 to-orange-100 p-4">
+    <div className="min-h-screen bg-gradient-to-br from-[#111827] to-black text-gray-300 p-4">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-amber-900 mb-2">Elden Ring Complete Walkthrough Checklist</h1>
-          <p className="text-amber-700 mb-4">Track your progress through the Lands Between</p>
+          <h1 className="text-4xl font-bold text-gold-300 mb-2" style={{ fontFamily: 'var(--font-cinzel)' }}>Elden Ring Complete Walkthrough Checklist</h1>
+          <p className="text-gold-600 mb-4">Track your progress through the Lands Between</p>
 
           <div className="flex items-center justify-center gap-4 mb-4">
-            <div className="text-lg font-semibold text-amber-800">
+            <div className="text-lg font-semibold text-gold-400">
               Progress: {completedItems}/{totalItems} ({progressPercentage}%)
             </div>
             <Button
               onClick={resetProgress}
               variant="outline"
               size="sm"
-              className="text-red-600 border-red-300 hover:bg-red-50"
+              className="text-red-400 border-red-900/80 hover:bg-red-950/50 hover:text-red-300 hover:border-red-800"
             >
               <RotateCcw className="w-4 h-4 mr-2" />
               Reset All
             </Button>
           </div>
 
-          <div className="w-full bg-amber-200 rounded-full h-3 mb-6">
+          <div className="w-full bg-gray-800 rounded-full h-3 mb-6">
             <div
-              className="bg-gradient-to-r from-amber-500 to-orange-500 h-3 rounded-full transition-all duration-300"
+              className="bg-gradient-to-r from-gold-700 to-gold-400 h-3 rounded-full transition-all duration-300"
               style={{ width: `${progressPercentage}%` }}
             />
           </div>
@@ -1071,32 +1071,37 @@ export default function EldenRingChecklist() {
 
         <div className="space-y-4">
           {sections.map((section) => (
-            <Card key={section.id} className="overflow-hidden">
+            <Card
+              key={section.id}
+              className={`overflow-hidden bg-[#1a1f2b] shadow-lg shadow-black/20 transition-all duration-300 ${
+                section.completed ? 'border-gold-700' : 'border-gold-900/60'
+              }`}
+            >
               <Collapsible open={section.isOpen} onOpenChange={() => toggleSection(section.id)}>
                 <CollapsibleTrigger asChild>
-                  <CardHeader className="cursor-pointer hover:bg-amber-50 transition-colors">
+                  <CardHeader className="cursor-pointer hover:bg-gold-950/20 transition-colors">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
                         {section.isOpen ? (
-                          <ChevronDown className="w-5 h-5 text-amber-600" />
+                          <ChevronDown className="w-5 h-5 text-gold-500" />
                         ) : (
-                          <ChevronRight className="w-5 h-5 text-amber-600" />
+                          <ChevronRight className="w-5 h-5 text-gold-500" />
                         )}
                         <div>
                           <div className="flex items-center gap-2">
-                            <CardTitle className="text-lg text-amber-900">{section.title}</CardTitle>
+                            <CardTitle className="text-lg text-gold-300">{section.title}</CardTitle>
                             {section.completed && (
-                              <span className="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full">
+                              <span className="bg-gold-950 text-gold-300 text-xs font-medium px-2.5 py-0.5 rounded-full border border-gold-800">
                                 Complete
                               </span>
                             )}
                           </div>
-                          <div className="text-sm text-amber-600 mt-1">
+                          <div className="text-sm text-gold-600 mt-1">
                             Level: {section.level} | Upgrades: {section.upgrades}
                           </div>
                         </div>
                       </div>
-                      <div className="text-sm text-amber-700">
+                      <div className="text-sm text-gold-400">
                         {section.items.filter((item) => item.checked).length}/{section.items.length}
                       </div>
                     </div>
@@ -1106,21 +1111,21 @@ export default function EldenRingChecklist() {
                 <CollapsibleContent>
                   <CardContent className="pt-0">
                     {section.description && (
-                      <div className="mb-4 text-sm text-amber-700 italic">{section.description}</div>
+                      <div className="mb-4 text-sm text-gold-600 italic border-l-2 border-gold-800 pl-3">{section.description}</div>
                     )}
 
                     <div className="space-y-2 mb-6">
                       {section.items.map((item) => (
                         <div
                           key={item.id}
-                          className="flex items-center gap-3 p-2 rounded hover:bg-amber-50 cursor-pointer"
+                          className="flex items-center gap-3 p-2 rounded hover:bg-gold-950/20 cursor-pointer"
                           onClick={() => toggleItem(section.id, item.id)}
                         >
                           <Checkbox
                             checked={item.checked}
-                            className="data-[state=checked]:bg-green-600 data-[state=checked]:border-green-600"
+                            className="data-[state=checked]:bg-gold-600 data-[state=checked]:border-gold-500"
                           />
-                          <span className={`flex-1 ${item.checked ? "line-through text-green-600" : "text-gray-700"}`}>
+                          <span className={`flex-1 ${item.checked ? "line-through text-gold-700 decoration-gold-700" : "text-gray-300"}`}>
                             {item.text}
                           </span>
                         </div>
@@ -1128,13 +1133,13 @@ export default function EldenRingChecklist() {
                     </div>
 
                     {section.walkthrough && (
-                      <div className="border-t border-amber-200 pt-4">
+                      <div className="border-t border-gold-900/40 pt-4">
                         <div className="flex items-center gap-2 mb-3">
-                          <BookOpen className="w-4 h-4 text-amber-600" />
-                          <h4 className="font-semibold text-amber-900">Detailed Walkthrough Notes</h4>
+                          <BookOpen className="w-4 h-4 text-gold-500" />
+                          <h4 className="font-semibold text-gold-400">Detailed Walkthrough Notes</h4>
                         </div>
                         <div
-                          className="text-sm text-gray-700 prose prose-sm max-w-none [&_a]:text-blue-600 [&_a]:underline [&_a:hover]:text-blue-800"
+                          className="text-sm text-gray-400 prose prose-invert prose-sm max-w-none prose-strong:text-gold-300 [&_a]:text-gold-500 [&_a]:underline [&_a:hover]:text-gold-400"
                           dangerouslySetInnerHTML={{
                             __html: section.walkthrough
                               .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
@@ -1152,7 +1157,7 @@ export default function EldenRingChecklist() {
           ))}
         </div>
 
-        <div className="mt-8 text-center text-sm text-amber-600">
+        <div className="mt-8 text-center text-sm text-gold-700">
           <p>Progress is automatically saved to your browser's local storage.</p>
           <p className="mt-2">
             Data source:{" "}
@@ -1160,7 +1165,7 @@ export default function EldenRingChecklist() {
               href="https://eldenring.wiki.fextralife.com/Game+Progress+Route"
               target="_blank"
               rel="noopener noreferrer"
-              className="underline"
+              className="underline hover:text-gold-500"
             >
               Elden Ring Wiki - Fextralife
             </a>
