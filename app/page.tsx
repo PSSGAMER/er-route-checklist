@@ -33,7 +33,6 @@ const initialData: Section[] = [
     upgrades: "+0 ~ +1",
     isOpen: false,
     completed: false,
-    description: "Starting area with essential gear and basic mechanics",
     items: [
       { id: "wl-1", text: "Buy Essential Gear", checked: false },
       { id: "wl-2", text: "Obtain Limgrave West Map Fragment", checked: false },
@@ -69,7 +68,6 @@ const initialData: Section[] = [
     upgrades: "+1 ~ +2",
     isOpen: false,
     completed: false,
-    description: "Exploration of eastern areas and underground access",
     items: [
       { id: "el-1", text: "Talk to Kenneth Haight", checked: false },
       { id: "el-2", text: "Get the Flask of Wondrous Physick", checked: false },
@@ -102,7 +100,6 @@ const initialData: Section[] = [
     upgrades: "+2 ~ +3",
     isOpen: false,
     completed: false,
-    description: "Southern exploration and Castle Morne",
     items: [
       { id: "wp-1", text: "Meet Yura & Take on Dragon", checked: false },
       { id: "wp-2", text: "Obtain Sorcery Scroll", checked: false },
@@ -132,7 +129,6 @@ const initialData: Section[] = [
     upgrades: "+3 ~ +4",
     isOpen: false,
     completed: false,
-    description: "Hub area access and NPC interactions",
     items: [
       { id: "rh-1", text: "Head up from Stormhill into Stormveil", checked: false },
       { id: "rh-2", text: "Defeat the Boss", checked: false },
@@ -159,7 +155,6 @@ The most important thing to do here right now is to ensure that you <a href="htt
     upgrades: "+3 ~ +4",
     isOpen: false,
     completed: false,
-    description: "First legacy dungeon and Godrick boss fight",
     items: [
       { id: "sc-1", text: "Take the alternate entrance to the Stormveil Castle", checked: false },
       { id: "sc-2", text: "Ascend the Castle and clear Enemies in your path", checked: false },
@@ -201,7 +196,6 @@ The most important thing to do here right now is to ensure that you <a href="htt
     upgrades: "+3 ~ +4",
     isOpen: false,
     completed: false,
-    description: "Academy access and southern lake exploration",
     items: [
       { id: "ls-1", text: "Talk to Boc the Seamster", checked: false },
       { id: "ls-2", text: "Meet Sorcerer Thops", checked: false },
